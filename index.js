@@ -74,6 +74,50 @@ const haySiguienteFila = function() {
     });
 }
 
+// TEST, MEJORAR
+$("nav > button").on("click", function(event) {
+    
+            const palabra = $("h1").html();
+            const respuesta = $(".caja .fila.activo input").map( function() { return $(this).val(); } ).get().join("");
+            if (palabra === respuesta) {
+                alert("¡Correcto!");
+                reiniciarJuego();
+            } else {
+                for ( let count = 0; count < palabra.length; count++ ) {
+                    if ( $( $(".fila.activo input")[ count ] ).val() !== palabra[ count ] ) {
+                        $( $(".fila.activo input")[ count ] ).css( "border", "1px solid red" );
+                    }
+                }
+                for ( let count = 0; count <= palabra.length; count++ ) {
+                    const letra = $( $(".fila.activo input")[ count ] ).val()
+                    if ( palabra.includes( letra ) ) {
+                        $( $(".fila.activo input")[ count ] ).css( "border", "1px solid yellow" );
+                    }
+                }
+                for ( let count = 0; count < palabra.length; count++ ) {
+                    if ( $( $(".fila.activo input")[ count ] ).val() == palabra[ count ] ) {
+                        $( $(".fila.activo input")[ count ] ).css( "border", "1px solid green" );
+                    }
+                }
+            }
+            
+            
+            
+
+            
+            if ( haySiguienteFila() ) {
+                $(".fila.activo").next().addClass("activo");
+                $( $(".fila.activo")[ 0 ] ).removeClass("activo");
+                $($(".fila.activo > input")[0]).focus();
+            } else {
+                reiniciarJuego();
+                alert("¡Fin del juego!");
+            }
+});
+
+
+
+
 // SALTO DE INPUT AL TECLEAR
 {
     document.addEventListener('keydown', function(event) {
