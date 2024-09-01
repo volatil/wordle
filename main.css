@@ -4,7 +4,9 @@
   font-weight: 400;
   font-style: normal;
 }
-
+body {
+    font-family: "Roboto", sans-serif;
+}
 
 .caja > .fila > input {
     border-radius: 6px;
