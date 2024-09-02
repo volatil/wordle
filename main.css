@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 body {
     font-family: "Roboto", sans-serif;
     background-color: #241f25;
@@ -26,6 +27,7 @@ body {
     align-items: center;
 }
 .caja > .fila > input {
+    font-family: "Rubik", sans-serif;
     border-radius: 50%;
     color: white;
     border: none;
