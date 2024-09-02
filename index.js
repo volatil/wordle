@@ -81,9 +81,11 @@ const logica = function() {
 }
 
 // TEST, MEJORAR
-$("nav > button").on("click", function(event) {
-    logica();
-});
+{
+    $("nav > button").on("click", function(event) {
+        logica();
+    });
+}
 
 // SALTO DE INPUT AL TECLEAR
 {
