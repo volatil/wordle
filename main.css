@@ -65,6 +65,12 @@ nav {
     background-color: #241f25;
     padding: 20px 0;
 }
+nav > img {
+    width: 30px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
 nav > button {
     background: #7a6acf;
     color: white;

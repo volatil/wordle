@@ -98,3 +98,11 @@ $("nav > button").on("click", function(event) {
         });
     });
 }
+
+// VER PALABRA
+{
+    $("nav > img").on("click", function(){
+        const palabra = $("h1").html();
+        alert( `La palabra es: ${ palabra }` );
+    })
+}
