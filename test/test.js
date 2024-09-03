@@ -22,9 +22,20 @@ $(".fila input").on("keyup", function(event){
             // if ( !event.key.includes( "Backspace" ) && !event.key.includes( "sdDeleteds" ) && !event.key.includes( "Arrow" ) && !event.key.includes( "Tab" ) ) {
         if ( event.key.length == 1  ) {
             $( this ).val( event.key );
+            $( this ).next().focus();
+            // $($(".fila.activo > input")[0]).focus();
         }
     }
 });
+
+// APRETAR ENTER PARA ENVIAR LA PALABRA
+{
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            $(".caja .fila .status[ data-estado='ready' ]").click();
+        }
+    });
+}
 
 // ACTIVA EL BOTON QUE PRUEBA SI ES LA FRASE CORRECTA
 $(".fila input").on("keyup", function(){
