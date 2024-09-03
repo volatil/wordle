@@ -25,6 +25,7 @@ body {
     position: relative;
     width: 300px;
     margin: 0 auto 8px;
+    margin-left: 40px;
 }
 .caja .fila input {
     font-weight: 800;
@@ -33,12 +34,17 @@ body {
     outline: none;
     border: none;
     color: white;
-    background-color: #2a2f32;
     width: 50px;
     height: 50px;
     text-align: center;
     border-radius: 5px;
     caret-color: transparent;
+}
+.caja .fila.habilitada input {
+    background-color: #34393d;
+}
+.caja .fila.deshabilitada input {
+    background-color: #252a2d;
 }
 .caja .fila input:focus ,
 .caja .fila input:focus-visible {
@@ -60,6 +66,9 @@ body {
     background: #6d994a;
     opacity: 100%;
     box-shadow: 3px 3px 1px #355918;
+}
+.caja .fila.deshabilitada .status {
+    display: none;
 }
 .caja .fila .status > svg {
     fill: white;
