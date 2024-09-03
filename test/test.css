@@ -25,7 +25,7 @@ body {
     position: relative;
     width: 300px;
     margin: 0 auto 8px;
-    margin-left: 40px;
+    margin-left: 0;
 }
 .caja .fila input {
     font-weight: 800;
