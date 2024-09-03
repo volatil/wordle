@@ -46,7 +46,6 @@ body {
 }
 .caja .fila .status {
     background-color: #2a2f32;
-    /* padding: 10px; */
     width: 50px;
     height: 50px;
     position: absolute;
@@ -60,6 +59,7 @@ body {
 .caja .fila .status[ data-estado='ready' ] {
     background: #6d994a;
     opacity: 100%;
+    box-shadow: 3px 3px 1px #355918;
 }
 .caja .fila .status > svg {
     fill: white;

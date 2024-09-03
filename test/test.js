@@ -6,10 +6,31 @@ const GLOBAL = {
 $(".fila input").on("keyup", function(event){
     let valor = $( this ).val();
     if ( valor.length >= 1 ) {
-        $( this ).val( event.key );
+        console.warn( `habia 1 letra ${ event.key }` );
+        // if ( !event.key.includes("Enter") && !event.key.includes("Shift") && !event.key.includes("Backspace") && !event.key.includes("sdDeleteds") && !event.key.includes("Delete") && !event.key.includes("ArrowLeft") && !event.key.includes("ArrowRight") && !event.key.includes("ArrowUp") && !event.key.includes("ArrowDown") && !event.key.includes("Tab") ) {
+            // if ( !event.key.includes( "Backspace" ) && !event.key.includes( "sdDeleteds" ) && !event.key.includes( "Arrow" ) && !event.key.includes( "Tab" ) ) {
+        if ( event.key.length == 1  ) {
+            $( this ).val( event.key );
+        }
+    }
+});
+
+// ACTIVA EL BOTON QUE PRUEBA SI ES LA FRASE CORRECTA
+$(".fila input").on("keyup", function(){
+    let intentopalabra = "";
+    for ( let count = 0; count <= $(".fila.habilitada > input").length-1; count++ ) {
+        const letra = $( $(".fila.habilitada > input")[ count ] ).val();
+        intentopalabra += letra;
+        
+        if ( intentopalabra.length == 5 ) {
+            $(".caja .fila.habilitada .status").attr( "data-estado", "ready" );
+        } else {
+            $(".caja .fila.habilitada .status").attr( "data-estado", "listen" );
+        }
     }
 })
 
+// AGREGA FILAS
 for ( let count = 0; count <= GLOBAL.cantidadFilas; count++ ) {
     $( ".caja" ).append( `
         <div class="fila deshabilitada">
