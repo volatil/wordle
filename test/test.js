@@ -57,20 +57,27 @@ const verificaCoincidencias = function() {
     console.warn( palabra );
 }
 
-// CAMBIO DE LETRA SI YA HAY UNA ESCRITA
+// CAMBIO DE INPUT FOCUS AL TECLEAR UNA LETRA
 {
-    $("body").on("keyup", ".fila.habilitada input", function(event){
-        let valor = $( this ).val();
-        if ( valor.length >= 1 ) {
-            // if ( !event.key.includes("Enter") && !event.key.includes("Shift") && !event.key.includes("Backspace") && !event.key.includes("sdDeleteds") && !event.key.includes("Delete") && !event.key.includes("ArrowLeft") && !event.key.includes("ArrowRight") && !event.key.includes("ArrowUp") && !event.key.includes("ArrowDown") && !event.key.includes("Tab") ) {
-                // if ( !event.key.includes( "Backspace" ) && !event.key.includes( "sdDeleteds" ) && !event.key.includes( "Arrow" ) && !event.key.includes( "Tab" ) ) {
-            if ( event.key.length == 1  ) {
-                $( this ).val( event.key );
-                $( this ).next().focus();
-                // $($(".fila.activo > input")[0]).focus();
+    if ( $(document).width() <= 768 ) {
+        document.addEventListener('keyup', function(event) {
+            const inputElement = event.target;
+            const nextInput = inputElement.nextElementSibling;
+            if (nextInput) {
+                nextInput.focus();
             }
-        }
-    });
+        });
+    } else {
+        $("body").on("keyup", ".fila.habilitada input", function(event){
+            let valor = $( this ).val();
+            if ( valor.length >= 1 ) {
+                if ( event.key.length == 1  ) {
+                    $( this ).val( event.key );
+                    $( this ).next().focus();
+                }
+            }
+        });
+    }
 }
 
 // APRETAR ENTER PARA ENVIAR LA PALABRA
