@@ -6,13 +6,41 @@ const GLOBAL = {
     cantidadFilas: 10,
 }
 
+const eligePalabra = function() {
+    let arrUnidos = diccionario;
+    arrUnidos = arrUnidos.filter( palabra => palabra.length == 5 );
+    const palabra = arrUnidos[ Math.floor( Math.random() * arrUnidos.length ) ];
+    console.warn( `Cantidad de palabras: ${ arrUnidos.length }` );
+    if ( $("span.palabra").length >= 1 ) {
+        console.warn( `ya estaba insertado` );
+        $("span.palabra").html( palabra );
+    } else {
+        console.warn( `inserte` );
+        $("body").append(`<span class='palabra' style='display: none;'>${ palabra }</span>`);
+    }
+    console.warn( palabra );
+}
+eligePalabra();
+
 const juegoTerminado = function({ estado, palabra }) {
     if ( estado ) {
         alert(`¡Correcto! ${ palabra }`);
     } else {
-        // $(".caja .fila input").removeAttr("class")
         console.warn( `No quedan mas intentos ${ palabra }` );
     }
+    $(".caja .fila input").removeAttr("class")
+    $(".caja .fila input").val("");
+    $(".caja .fila .status").attr( "data-estado", "listen" );
+    $(".caja .fila").addClass("deshabilitada");
+    $(".caja .fila").removeClass("habilitada");
+    $( $(".caja .fila")[ 0 ] ).addClass("habilitada");
+    $( $(".caja .fila")[ 0 ] ).removeClass("deshabilitada");
+    
+    
+    $(".caja .fila.deshabilitada input").attr("disabled", true);
+    $(".caja .fila.habilitada input").attr("disabled", false);
+    $(".caja .fila.habilitada input")[0].focus();
+    eligePalabra();
 }
 
 const siguienteOportunidad = function() {
@@ -44,17 +72,6 @@ const verificaCoincidencias = function() {
             $( $(".fila.habilitada > input")[ count ] ).addClass("casi");
         }
     }
-}
-
-
-// ELIGE PALABRA RANDOM
-{
-    let arrUnidos = diccionario;
-    arrUnidos = arrUnidos.filter( palabra => palabra.length == 5 );
-    const palabra = arrUnidos[ Math.floor( Math.random() * arrUnidos.length ) ];
-    console.warn( `Cantidad de palabras: ${ arrUnidos.length }` );
-    $("body").append(`<span class='palabra' style='display: none;'>${ palabra }</span>`);
-    console.warn( palabra );
 }
 
 // CAMBIO DE INPUT FOCUS AL TECLEAR UNA LETRA
@@ -155,10 +172,6 @@ const verificaCoincidencias = function() {
         }
         
         if ( palabra.poradivinar === palabra.posible() ) {
-            console.warn( `son iguales!` );
-
-            $(".caja .fila input").val("");
-            $(".caja .fila .status").attr( "data-estado", "listen" );
             juegoTerminado({ estado: true, palabra: palabra.posible() });
         } else {
             console.warn( `NO son iguales ...` );
