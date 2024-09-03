@@ -93,7 +93,6 @@ const GLOBAL = {
     }
     const siguienteOportunidad = function() {
         console.warn( `siguiente oportunidad` );
-        // if ( $(".fila.habilitada").next().attr("class").includes("deshabilitada") ) {
         let hayOtraFila = Boolean( Boolean( $(".fila.habilitada").next().attr("class") ) );
         if ( hayOtraFila ) {
             // CAMBIA CLASES
