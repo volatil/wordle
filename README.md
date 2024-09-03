@@ -5,3 +5,4 @@ https://elwordle.vercel.app/
 - [ ] Siguientes bloques mas oscuros
 - [ ] Modal introduccion de colores
 - [ ] Darkmode
+- [ ] Configurar filas y cantidad de letras
