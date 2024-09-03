@@ -1,19 +1,207 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+:root {
+    --fondo: #241f25;
+    --amarillo: #c9b458;
+    --verde: #6d994a;
+    --morado: #7a6acf;
+    --verdeBoton: #6d994a;
+    --verdeBotonSombra: #355918;
+    --inputHabilitada: #34393d;
+    --inputDeshabilitada: #252a2d;
+}
 body {
     font-family: "Roboto", sans-serif;
-    background-color: #241f25;
+    background-color: var( --fondo );
 }
-.titulo {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* |=============================| HEADER |=============================| */
+header .titulo {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
     width: 100%;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     color: white;
-    font-size: 3.1em;
+    font-size: 2.1em;
+    height: 50px;
 }
+header .menu {
+    height: 100%;
+}
+header .menu > span {
+    height: 1px;
+    background-color: white;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .caja {
     padding-bottom: 50px;
@@ -41,25 +229,24 @@ body {
     caret-color: transparent;
 }
 .caja .fila.habilitada input {
-    background-color: #34393d;
+    background-color: var( --inputHabilitada );
 }
 .caja .fila.deshabilitada input {
-    background-color: #252a2d;
+    background-color: var( --inputDeshabilitada );
 }
 .caja .fila.deshabilitada input.casi {
-    background-color: #c9b458;
+    background-color: var( --amarillo );
     color: black;
 }
 .caja .fila.deshabilitada input.exacto {
-    background-color: #6d994a;
+    background-color: var( --verde );
     color: white;
 }
 .caja .fila input:focus ,
 .caja .fila input:focus-visible {
-    outline: 1px solid #7a6acf;
+    outline: 1px solid var( --morado );
 }
 .caja .fila .status {
-    background-color: #2a2f32;
     width: 50px;
     height: 50px;
     position: absolute;
@@ -71,9 +258,9 @@ body {
     justify-content: center;
 }
 .caja .fila .status[ data-estado='ready' ] {
-    background: #6d994a;
+    background: var( --verdeBoton );
     opacity: 100%;
-    box-shadow: 3px 3px 1px #355918;
+    box-shadow: 3px 3px 1px var( --verdeBotonSombra );
 }
 .caja .fila.deshabilitada .status {
     display: none;
