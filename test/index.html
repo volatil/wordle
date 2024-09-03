@@ -18,7 +18,36 @@
 
     </head>
     <body>
-        <p class="titulo">Wordle</p>
+        <header>
+            <p class="titulo">Wordle</p>
+            <div class="hamburguesa">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+        <nav class="menu" data-menu="fondo"></nav>
+        <nav class="menu" data-menu="contenido">
+            <p class="minititulo">Menu</p>
+            <ul>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path d="M4 0C1.8 0 0 1.8 0 4s1.8 4 4 4c1.1 0 2.12-.43 2.84-1.16l-.72-.72c-.54.54-1.29.88-2.13.88c-1.66 0-3-1.34-3-3s1.34-3 3-3c.83 0 1.55.36 2.09.91L4.99 3h3V0L6.8 1.19C6.08.47 5.09 0 3.99 0z"/></svg>
+                    <p>Reiniciar</p>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M499.277 241.051L257.897 139.37v179.772h-25.181c-14.822 0-27.309 12.129-27.028 26.948c.272 14.365 12.002 25.926 26.432 25.926h13.764a59.5 59.5 0 0 0 23.083-4.663l230.31-97.017c12.96-5.46 12.96-23.826 0-29.285"/><path fill="#BCBCBC" d="M269.132 266.268h-63.449v79.311h.009c.013-14.585 12.374-26.437 27.024-26.437h36.417c14.601 0 26.437-11.836 26.437-26.437c-.001-14.601-11.837-26.437-26.438-26.437"/><path fill="#E0E0E0" d="M243.537 33.622H22.561v232.646h246.571c14.601 0 26.437 11.836 26.437 26.437V85.654c0-28.736-23.295-52.032-52.032-52.032"/><path fill="#597B91" d="M37.981 490.615c-11.322 0-20.5-9.178-20.5-20.5V38.73c0-11.322 9.178-20.5 20.5-20.5s20.5 9.178 20.5 20.5v431.385c0 11.323-9.178 20.5-20.5 20.5"/></svg>
+                    <p>Me rindo</p>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" d="M16.007 18H22V2H2v16h6.243l3.882 4z"/></svg>
+                    <p>Instrucciones</p>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><path fillRule="evenodd" d="M3.788 1.314c.988.02 2.085.49 3.214 1.56c1.127-1.067 2.223-1.536 3.21-1.555c1.04-.02 1.918.46 2.536 1.18c1.218 1.42 1.47 3.85-.058 5.377l-.001.001l-4.247 4.208c-.81.802-2.07.802-2.88 0L1.316 7.877C-.217 6.343.032 3.913 1.25 2.491c.617-.72 1.495-1.2 2.537-1.178Z" clipRule="evenodd"/></svg>
+                    <p>Acerca de</p>
+                </li>
+            </ul>
+        </nav>
         
         <div class="caja">
             <div class="fila habilitada">
@@ -34,5 +63,6 @@
         </div>
 
         <script type="module" src="test.js"></script>
+        <script src="../js/ui.js"></script>
     </body>
 </html>
