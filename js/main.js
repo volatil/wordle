@@ -60,13 +60,25 @@ const verificaCoincidencias = function() {
 // CAMBIO DE INPUT FOCUS AL TECLEAR UNA LETRA
 {
     if ( $(document).width() <= 768 ) {
-        document.addEventListener('keyup', function(event) {
-            const inputElement = event.target;
-            const nextInput = inputElement.nextElementSibling;
-            if (nextInput) {
-                nextInput.focus();
-            }
-        });
+        if ( location.href.includes("127") ) {
+            $("body").on("keyup", ".fila.habilitada input", function(event){
+                let valor = $( this ).val();
+                if ( valor.length >= 1 ) {
+                    if ( event.key.length == 1  ) {
+                        $( this ).val( event.key );
+                        $( this ).next().focus();
+                    }
+                }
+            });
+        } else {
+            document.addEventListener('keyup', function(event) {
+                const inputElement = event.target;
+                const nextInput = inputElement.nextElementSibling;
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            });
+        }
     } else {
         $("body").on("keyup", ".fila.habilitada input", function(event){
             let valor = $( this ).val();
