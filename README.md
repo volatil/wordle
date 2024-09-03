@@ -6,3 +6,4 @@ https://elwordle.vercel.app/
 - [ ] Modal introduccion de colores
 - [ ] Darkmode
 - [ ] Configurar filas y cantidad de letras
+- [ ] Modal al terminar el juego
