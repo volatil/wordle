@@ -3,8 +3,49 @@
 import { diccionario } from "../js/diccionario.js";
 
 const GLOBAL = {
-    cantidadFilas: 1,
+    cantidadFilas: 10,
 }
+
+const juegoTerminado = function({ estado, palabra }) {
+    if ( estado ) {
+        alert(`¡Correcto! ${ palabra }`);
+    } else {
+        // $(".caja .fila input").removeAttr("class")
+        console.warn( `No quedan mas intentos ${ palabra }` );
+    }
+}
+
+const siguienteOportunidad = function() {
+    console.warn( `siguiente oportunidad` );
+    let hayOtraFila = Boolean( Boolean( $(".fila.habilitada").next().attr("class") ) );
+    if ( hayOtraFila ) {
+        // CAMBIA CLASES
+        $(".caja .fila.habilitada").next().removeClass("deshabilitada");
+        $(".caja .fila.habilitada").next().addClass("habilitada");
+        $( $(".caja .fila.habilitada")[ 0 ] ).addClass("deshabilitada");
+        $( $(".caja .fila.habilitada")[ 0 ] ).removeClass("habilitada");
+        // FOCUS Y HABILITA INPUTS
+        $(".caja .fila.deshabilitada input").attr("disabled", true);
+        $(".caja .fila.habilitada input").attr("disabled", false);
+        $(".caja .fila.habilitada input")[0].focus();
+    } else {
+        juegoTerminado({ estado: false, palabra: $(".palabra").html() });
+    }
+}
+
+const verificaCoincidencias = function() {
+    const palabra = $(".palabra").html();
+    for ( let count = 0; count <= $(".fila.habilitada > input").length-1; count++ ) {
+        const letra = $( $(".fila.habilitada > input")[ count ] ).val();
+        if ( letra == palabra[ count ] ) {
+            $( $(".fila.habilitada > input")[ count ] ).addClass("exacto");
+        } 
+        if ( palabra.includes( letra ) ) {
+            $( $(".fila.habilitada > input")[ count ] ).addClass("casi");
+        }
+    }
+}
+
 
 // ELIGE PALABRA RANDOM
 {
@@ -79,32 +120,9 @@ const GLOBAL = {
 
 // VERIFICA SI ES CORRECTO
 {
-    const juegoTerminado = function({ estado, palabra }) {
-        if ( estado ) {
-            alert(`¡Correcto! ${ palabra }`);
-        } else {
-            console.warn( `No quedan mas intentos ${ palabra }` );
-        }
-    }
-    const siguienteOportunidad = function() {
-        console.warn( `siguiente oportunidad` );
-        let hayOtraFila = Boolean( Boolean( $(".fila.habilitada").next().attr("class") ) );
-        if ( hayOtraFila ) {
-            // CAMBIA CLASES
-            $(".caja .fila.habilitada").next().removeClass("deshabilitada");
-            $(".caja .fila.habilitada").next().addClass("habilitada");
-            $( $(".caja .fila.habilitada")[ 0 ] ).addClass("deshabilitada");
-            $( $(".caja .fila.habilitada")[ 0 ] ).removeClass("habilitada");
-            // FOCUS Y HABILITA INPUTS
-            $(".caja .fila.deshabilitada input").attr("disabled", true);
-            $(".caja .fila.habilitada input").attr("disabled", false);
-            $(".caja .fila.habilitada input")[0].focus();
-        } else {
-            juegoTerminado({ estado: false, palabra: $(".palabra").html() });
-        }
-    }
-    
     $("body").on("click", ".caja .fila.habilitada .status[ data-estado='ready' ]", function () {
+        verificaCoincidencias();
+        
         const palabra = {
             poradivinar: $(".palabra").html() ,
             posible: function() {

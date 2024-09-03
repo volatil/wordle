@@ -46,6 +46,14 @@ body {
 .caja .fila.deshabilitada input {
     background-color: #252a2d;
 }
+.caja .fila.deshabilitada input.casi {
+    background-color: #c9b458;
+    color: black;
+}
+.caja .fila.deshabilitada input.exacto {
+    background-color: #6d994a;
+    color: white;
+}
 .caja .fila input:focus ,
 .caja .fila input:focus-visible {
     outline: 1px solid #7a6acf;
