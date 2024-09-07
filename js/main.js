@@ -8,14 +8,10 @@ const GLOBAL = {
 
 const eligePalabra = function() {
     let arrUnidos = diccionario;
-    arrUnidos = arrUnidos.filter( palabra => palabra.length == 5 );
     const palabra = arrUnidos[ Math.floor( Math.random() * arrUnidos.length ) ];
-    console.warn( `Cantidad de palabras: ${ arrUnidos.length }` );
     if ( $("span.palabra").length >= 1 ) {
-        console.warn( `ya estaba insertado` );
         $("span.palabra").html( palabra );
     } else {
-        console.warn( `inserte` );
         $("body").append(`<span class='palabra' style='display: none;'>${ palabra }</span>`);
     }
     console.warn( palabra );
