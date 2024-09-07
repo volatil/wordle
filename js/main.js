@@ -3,7 +3,7 @@
 import { diccionario } from "../js/diccionario.js";
 
 const GLOBAL = {
-    cantidadFilas: 10,
+    cantidadFilas: 5,
 }
 
 const eligePalabra = function() {
