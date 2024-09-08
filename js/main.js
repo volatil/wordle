@@ -2,7 +2,7 @@
 // en un parrafo escribe 1000 palabras en español, que tengan solo 5 letras cada una, que no contengan tilde, que no contengan la letra ñ, no tiene que tener sentido la oracion, no uses articulos ni conectores
 import { diccionario } from "../js/diccionario.js";
 
-const GLOBAL = {
+export const GLOBAL = {
     cantidadFilas: 5,
 }
 
@@ -24,6 +24,22 @@ const juegoTerminado = function({ estado, palabra }) {
     } else {
         console.warn( `No quedan mas intentos ${ palabra }` );
     }
+    $(".caja .fila input").removeAttr("class")
+    $(".caja .fila input").val("");
+    $(".caja .fila .status").attr( "data-estado", "listen" );
+    $(".caja .fila").addClass("deshabilitada");
+    $(".caja .fila").removeClass("habilitada");
+    $( $(".caja .fila")[ 0 ] ).addClass("habilitada");
+    $( $(".caja .fila")[ 0 ] ).removeClass("deshabilitada");
+    
+    
+    $(".caja .fila.deshabilitada input").attr("disabled", true);
+    $(".caja .fila.habilitada input").attr("disabled", false);
+    $(".caja .fila.habilitada input")[0].focus();
+    eligePalabra();
+}
+
+export const reiniciarJuego = function() {
     $(".caja .fila input").removeAttr("class")
     $(".caja .fila input").val("");
     $(".caja .fila .status").attr( "data-estado", "listen" );
