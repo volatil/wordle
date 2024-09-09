@@ -54,51 +54,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* |=============================| HEADER |=============================| */
 header {
     position: relative;
@@ -169,47 +124,6 @@ header .hamburguesa > span {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* |=============================| MENU |=============================| */
 nav[ data-menu="fondo" ] {
     top: 0;
@@ -221,7 +135,7 @@ nav[ data-menu="fondo" ] {
     right: 0;
     bottom: 0;
     z-index: 1;
-    opacity: 75%;
+    opacity: 55%;
 }
 nav[ data-menu="contenido" ] {
     padding: 10px;
@@ -280,38 +194,6 @@ nav > ul > li > p {
     color: white;
     margin: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -468,162 +350,6 @@ nav > ul > li > p {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* |=============================| MODAL |=============================| */
 .elmodal[ data-tipo='fondo' ] {
     /* display: none; */
@@ -637,8 +363,9 @@ nav > ul > li > p {
     z-index: 2;
 }
 .elmodal[ data-tipo='contenido' ] {
-    background: black;
-    background: red;
+    /* display: none; */
+    background: var( --fondo );
+    border: 1px solid var( --amarillo );
     position: fixed;
     top: 40px;
     left: 0;
