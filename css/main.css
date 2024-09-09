@@ -185,6 +185,9 @@ nav > ul > li {
     width: 100%;
     padding: 16px 0;
 }
+nav > ul > li:first-of-type {
+    border-top: 1px solid #333;
+}
 nav > ul > li > svg {
     fill: white;
     width: 20px;
