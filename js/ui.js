@@ -42,8 +42,25 @@ const modalToggle = function() {
                         <li>Cada suposición debe ser una palabra válida de 5 letras.</li>
                         <li>El color de las fichas cambiará para mostrar qué tan cerca estuvo tu suposición de la palabra.</li>
                     </ul>
-                    <div class="ejemplos">
-                        
+                    <div class="ejemplo">
+                        <div>
+                            <p class="exacto">R</p>
+                            <p>A</p>
+                            <p>T</p>
+                            <p>O</p>
+                            <p>N</p>
+                        </div>
+                        <p>La <strong>R</strong> está en la palabra y en el lugar correcto.</p>
+                    </div>
+                    <div class="ejemplo">
+                        <div>
+                            <p class="casi">P</p>
+                            <p>A</p>
+                            <p>T</p>
+                            <p>O</p>
+                            <p>N</p>
+                        </div>
+                        <p>La <strong>P</strong> está en la palabra y en el lugar correcto.</p>
                     </div>
                 `);
                 menuToggle();
