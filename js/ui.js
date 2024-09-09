@@ -1,18 +1,26 @@
 import { reiniciarJuego } from "./main.js";
 
-// TOGGLE MENU
+
+const cerrarMenu = function() {
+    $( "nav.menu[ data-menu='fondo' ]" ).toggle();
+    $( "nav.menu[ data-menu='contenido' ]" ).toggle();
+}
+const abrirMenu = function() {
+    $( "nav.menu[ data-menu='fondo' ]" ).toggle();
+    $( "nav.menu[ data-menu='contenido' ]" ).toggle();
+}
+
+// MENU => TOGGLE
 {
     $("nav.menu[ data-menu='fondo' ], nav[ data-menu='contenido' ] > .cerrar").on("click", function(){
-        $( "nav.menu[ data-menu='fondo' ]" ).toggle();
-        $( "nav.menu[ data-menu='contenido' ]" ).toggle();
+        cerrarMenu();
     })
     $("header .hamburguesa").on("click", function(){
-        $( "nav.menu[ data-menu='fondo' ]" ).toggle();
-        $( "nav.menu[ data-menu='contenido' ]" ).toggle();
+        abrirMenu();
     })
 }
 
-// CLICK MENU
+// MENU => CLICK
 {
     $("nav > ul > li").on("click", function(){
         const trigger = $( this ).attr("data-click");
@@ -20,6 +28,7 @@ import { reiniciarJuego } from "./main.js";
         switch ( trigger ) {
             case "reiniciar":
                 reiniciarJuego();
+                cerrarMenu();
                 break;
             case "merindo":
                 console.warn( `mer` );
@@ -30,4 +39,12 @@ import { reiniciarJuego } from "./main.js";
                 break;
         }
     })
+}
+
+// MODAL => TOGGLE
+{
+    $(".elmodal[ data-tipo='fondo' ], .elmodal[ data-tipo='contenido' ] > .cerrar").on("click", function(){
+        $( ".elmodal[ data-tipo='fondo' ]" ).toggle();
+        $( ".elmodal[ data-tipo='contenido' ]" ).toggle();
+    });
 }

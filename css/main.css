@@ -360,7 +360,7 @@ nav > ul > li > p {
 
 
 
-
+/* |=============================| ESTRUCTURA |=============================| */
 .caja {
     padding-bottom: 50px;
 }
@@ -431,3 +431,231 @@ nav > ul > li > p {
     background-color: white;
     fill: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* |=============================| MODAL |=============================| */
+.elmodal[ data-tipo='fondo' ] {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 75%;
+    z-index: 2;
+}
+.elmodal[ data-tipo='contenido' ] {
+    background: black;
+    background: red;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 2;
+    width: 90%;
+    padding: 2%;
+}
+.elmodal[ data-tipo='contenido' ] > .cerrar {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.elmodal[ data-tipo='contenido' ] > .cerrar > svg > g > path {
+    width: 30px;
+    fill: white;
+}
+
