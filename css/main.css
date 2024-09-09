@@ -59,6 +59,7 @@ header {
     position: relative;
     display: flex;
     justify-content: flex-end;
+    margin-top: 40px;
 }
 header .titulo {
     position: absolute;
