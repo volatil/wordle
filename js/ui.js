@@ -31,7 +31,8 @@ const abrirMenu = function() {
                 cerrarMenu();
                 break;
             case "merindo":
-                console.warn( `mer` );
+                const palabra = $("span.palabra").html();
+                alert(`La palabra era: ${ palabra }`)
                 break;
         
             default:
