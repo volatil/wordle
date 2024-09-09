@@ -387,4 +387,7 @@ nav > ul > li > p {
     width: 30px;
     fill: white;
 }
+.elmodal[ data-tipo='contenido' ] > .contenido {
+    color: white;
+}
 
