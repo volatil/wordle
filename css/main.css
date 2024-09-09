@@ -351,8 +351,11 @@ nav > ul > li > p {
 
 
 /* |=============================| MODAL |=============================| */
+.elmodal[ data-tipo='fondo' ] ,
+.elmodal[ data-tipo='contenido' ] {
+    display: none;
+}
 .elmodal[ data-tipo='fondo' ] {
-    /* display: none; */
     position: fixed;
     top: 0;
     left: 0;
@@ -363,7 +366,6 @@ nav > ul > li > p {
     z-index: 2;
 }
 .elmodal[ data-tipo='contenido' ] {
-    /* display: none; */
     background: var( --fondo );
     border: 1px solid var( --amarillo );
     position: fixed;
