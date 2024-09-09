@@ -60,7 +60,7 @@ const modalToggle = function() {
                             <p>O</p>
                             <p>N</p>
                         </div>
-                        <p>La <strong>P</strong> está en la palabra y en el lugar correcto.</p>
+                        <p><strong>P</strong> está en la palabra pero en el lugar equivocado.</p>
                     </div>
                 `);
                 menuToggle();
