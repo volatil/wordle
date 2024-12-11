@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link href="./css/main.css" rel="stylesheet" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="/180x180.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/16x16.png">
+        <link rel="manifest" href="../site.webmanifest">
+
+        <title>Agregar palabras</title>
+
+    </head>
+    <body>
+        <section style="padding: 20px;">
+            <p style="color: white;">insertar palabras</p>
+            <textarea style="background: black; color: white; padding: 10px;width: 100%;"></textarea>
+            <button>verificar</button>
+        </section>
+
+        <script type="module">
+            import { diccionario } from "./js/diccionario.js";
+            
+            const filtrarPalabras = function({ diccionario_entrante, diccionario_anterior }) {
+                console.debug( `[${ diccionario_anterior.length }] ORIGINAL`);
+                
+                if ( diccionario_entrante === undefined ) {
+                    alert( `No hay "diccionario_entrante"` );
+                    return false;
+                }
+                if ( diccionario_anterior === undefined ) {
+                    alert( `No hay "diccionario_anterior"` );
+                    return false;
+                }
+                
+                // agregando nuevas palabras al diccionario actual
+                for ( let count = 0; count <= diccionario_entrante.split(" ").length-1; count++ ) {
+                    diccionario_anterior.push( diccionario_entrante.split(" ")[ count ] )
+                }
+                
+                // quitando palabras no aceptadas
+                let palabras = diccionario_anterior;
+                let palabrasFiltradas = palabras.filter(palabra => {
+                    // Filtrar palabras con 5 letras
+                    if (palabra.length !== 5) {
+                        return false;
+                    }
+                    
+                    // Filtrar palabras sin tildes
+                    if (/[áéíóú]/i.test(palabra)) {
+                        return false;
+                    }
+                    
+                    // Filtrar palabras sin ñ
+                    if (/[ñ]/i.test(palabra)) {
+                        return false;
+                    }
+                    
+                    // Filtrar palabras con números
+                    if (/\d/.test(palabra)) {
+                        return false;
+                    }
+                    
+                    // Filtrar palabras con puntuación
+                    if (/[.,:;?+!¡¿«()—"'\-]/.test(palabra)) {
+                        return false;
+                    }
+                    
+                    return true;
+                });
+                
+                console.debug( `[${ palabrasFiltradas.length }] NUEVO CON REPETIDOS PROBABLEMENTE`);
+                const diccionario_nuevo = [ ...new Set( palabrasFiltradas ) ];
+                console.debug( `[${ diccionario_nuevo.length }] NUEVO SIN REPETIR`);
+                console.debug( diccionario_nuevo );
+                return diccionario_nuevo;
+            }
+            
+            $("section > button").on("click", function(){
+                let texto = $("section > textarea").val();
+                filtrarPalabras({ diccionario_entrante: texto, diccionario_anterior: diccionario })
+                // console.warn( filtrarPalabras({ diccionario_entrante: texto, diccionario_anterior: diccionario }) );
+            });
+        </script>
+    </body>
+</html>
